@@ -1,6 +1,8 @@
 # octoprint-k8s-socat
 Ever wanted to use Octoprint in a K8s pod and connect to a 3D printer remotely over the network? Then this might be for you.
 
+Just do a 'docker build' and specify your image in octoprint.yaml.
+
 ## Socat on the container's side (octoprint-k8s-socat)
 Octoprint image with socat and some YAML files for K8s deployment
 
