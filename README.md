@@ -3,7 +3,7 @@ Ever wanted to use Octoprint in a K8s pod and connect to a 3D printer remotely o
 
 Just do a 'docker build' and specify your image in octoprint.yaml.
 
-## 1/2 Socat on the container's side (octoprint-k8s-socat)
+## Part 1: Socat on the container's side (octoprint-k8s-socat)
 Octoprint image with socat and some YAML files for K8s deployment
 
 I am using MetalLB so your service.yaml file might look a little different. Also the persistent volume claim depends on your environment.
@@ -15,7 +15,7 @@ The environment variables needed for socat are set in the deployment octoprint.y
 * SOCAT_PRINTER_PORT sets the port used in socat on the printer host's side.
 * SOCAT_PRINTER_LINK names the device in the octoprint container (what you would choose under "connection").
 
-## 2/2 Socat on the printer host's side
+## Part 2: Socat on the printer host's side
 On the printer host's side (where your printer is actually connected to) you will also need socat running.  You will need something like
 
 ```bash
