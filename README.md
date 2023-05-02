@@ -8,10 +8,10 @@ I am using MetalLB so your service.yaml file might look a little different. Also
 
 The environment variables needed for socat are set in the deployment octoprint.yaml.
 
-SOCAT_PRINTER_TYPE specifies the type of the socat connection. (mostly tcp)
-SOCAT_PRINTER_HOST specifies the hostname on which the printer is actually connected.
-SOCAT_PRINTER_PORT sets the port used in socat on the printer host's side.
-SOCAT_PRINTER_LINK names the device in the octoprint container (what you would choose under "connection").
+* SOCAT_PRINTER_TYPE specifies the type of the socat connection. (mostly tcp)
+* SOCAT_PRINTER_HOST specifies the hostname on which the printer is actually connected.
+* SOCAT_PRINTER_PORT sets the port used in socat on the printer host's side.
+* SOCAT_PRINTER_LINK names the device in the octoprint container (what you would choose under "connection").
 
 ## Socat on the printer host's side
 On the printer host's side (where your printer is actually connected to) you will also need socat running.  You will need something like
