@@ -13,10 +13,13 @@ SOCAT_PRINTER_LINK names the device in the octoprint container (what you would c
 # Socat on the printer host's side
 On the printer host's side (where your printer is actually connected to) you will also need socat running.  You will need something like
 
+...
 /usr/bin/socat TCP4-LISTEN:4000,fork,reuseaddr /dev/ttyACM0,raw,echo=0,b115200
+...
 
 You could also wrap this in a systemd service unit like
 
+...
 [Install]
 WantedBy=multi-user.target
 
@@ -25,3 +28,4 @@ ExecStart=/usr/bin/socat TCP4-LISTEN:4000,fork,reuseaddr /dev/ttyACM0,raw,echo=0
 User=root
 Restart=always
 RestartSec=10
+...
