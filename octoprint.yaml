@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: octoprint-deployment
+  namespace: octoprint
+  labels:
+    app: octoprint
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: octoprint
+  template:
+    metadata:
+      labels:
+        app: octoprint
+    spec:
+      containers:
+      - name: octoprint
+        image: registry-test.lan:5000/octoprint:0.1
+        env:
+        - name: SOCAT_PRINTER_TYPE
+          value: "tcp"
+        - name: SOCAT_PRINTER_HOST
+          value: "k3sw002.lan"
+        - name: SOCAT_PRINTER_PORT
+          value: "4000"
+        - name: SOCAT_PRINTER_LINK
+          value: "/dev/ttyACM0"
+        volumeMounts:
+          - name: octostorage
+            mountPath: "/root/.octoprint"
+        ports:
+        - containerPort: 8080
+      volumes:
+        - name: octostorage
+          persistentVolumeClaim:
+            claimName: octoprint-claim
