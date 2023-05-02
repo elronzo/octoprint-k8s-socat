@@ -3,7 +3,7 @@ Octoprint image with socat and some YAML files for K8s deployment
 
 I am using MetalLB so your service.yaml file might look a little different. Also the persistent volume claim depends on your environment.
 
-The environment variables needed for socat are set in the octoprint_deployment.yaml.
+The environment variables needed for socat are set in the deployment octoprint.yaml.
 
 SOCAT_PRINTER_TYPE specifies the type of the socat connection. (mostly tcp)
 SOCAT_PRINTER_HOST specifies the hostname on which the printer is actually connected.
